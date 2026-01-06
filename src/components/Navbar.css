@@ -44,3 +44,23 @@
 .navbar-links li a:hover {
   color: #ffffff;        /* White on hover */
 }
+
+/* Navbar.css - Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* stack menu vertically */
+    align-items: center;
+    padding: 10px;
+  }
+
+  .navbar a {
+    margin: 5px 0; /* spacing between links */
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar a {
+    font-size: 14px; /* smaller links on mobile */
+  }
+}
