@@ -1,0 +1,86 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #0b1f3a;
+  overflow-x: hidden;
+}
+
+.home-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #0b1f3a;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Perfectly centered vertically, slightly left horizontally */
+.home-title {
+  position: absolute;
+  top: 50%;                 
+  left: 47.8%;              /* nudged more left */
+  transform: translate(-50%, -50%);  /* vertical center preserved */
+  font-size: 100px;
+  line-height: 1;
+  margin: 0;
+  color: white;
+  text-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #87cefa,
+    0 0 20px #87cefa,
+    0 0 40px #87cefa,
+    0 0 80px #87cefa;
+  cursor: pointer;
+  transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
+  z-index: 2;
+}
+
+.home-title:hover {
+  color: #87cefa;
+  transform: translate(-50%, -50%) scale(1.15);
+  text-shadow:
+    0 0 10px #ffffff,
+    0 0 20px #87cefa,
+    0 0 40px #87cefa,
+    0 0 60px #87cefa,
+    0 0 100px #87cefa;
+}
+
+/* Bigger, twinkling glitter background */
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    radial-gradient(3px 3px at 10% 20%, rgba(255,255,255,0.9) 50%, transparent 51%),
+    radial-gradient(3px 3px at 20% 40%, rgba(255,255,255,0.85) 50%, transparent 51%),
+    radial-gradient(3px 3px at 30% 70%, rgba(255,255,255,0.8) 50%, transparent 51%),
+    radial-gradient(3px 3px at 50% 30%, rgba(255,255,255,0.9) 50%, transparent 51%),
+    radial-gradient(3px 3px at 60% 60%, rgba(255,255,255,0.8) 50%, transparent 51%),
+    radial-gradient(3px 3px at 70% 20%, rgba(255,255,255,0.85) 50%, transparent 51%),
+    radial-gradient(3px 3px at 80% 80%, rgba(255,255,255,0.7) 50%, transparent 51%),
+    radial-gradient(3px 3px at 90% 50%, rgba(255,255,255,0.9) 50%, transparent 51%);
+  background-repeat: repeat;
+  background-size: 160px 160px;  
+  z-index: 1;
+  animation: glitterMove 20s linear infinite, glitterTwinkle 2s infinite alternate;
+}
+
+/* Slow movement */
+@keyframes glitterMove {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(40px,40px); }
+  100% { transform: translate(0,0); }
+}
+
+/* Twinkle effect */
+@keyframes glitterTwinkle {
+  0% { opacity: 0.9; }
+  25% { opacity: 0.7; }
+  50% { opacity: 1; }
+  75% { opacity: 0.8; }
+  100% { opacity: 0.9; }
+}
