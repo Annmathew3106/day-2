@@ -1,10 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
   font-family: Arial, sans-serif;
-  background-color: #0b1f3a;
   overflow-x: hidden;
 }
 
@@ -16,15 +13,12 @@ html, body {
   overflow: hidden;
 }
 
-/* Perfectly centered vertically, slightly left horizontally */
 .home-title {
   position: absolute;
-  top: 50%;                 
-  left: 47.8%;              /* nudged more left */
-  transform: translate(-50%, -50%);  /* vertical center preserved */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 100px;
-  line-height: 1;
-  margin: 0;
   color: white;
   text-shadow:
     0 0 5px #ffffff,
@@ -34,7 +28,6 @@ html, body {
     0 0 80px #87cefa;
   cursor: pointer;
   transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
-  z-index: 2;
 }
 
 .home-title:hover {
@@ -48,7 +41,6 @@ html, body {
     0 0 100px #87cefa;
 }
 
-/* Bigger, twinkling glitter background */
 .home-container::before {
   content: "";
   position: absolute;
@@ -64,19 +56,17 @@ html, body {
     radial-gradient(3px 3px at 80% 80%, rgba(255,255,255,0.7) 50%, transparent 51%),
     radial-gradient(3px 3px at 90% 50%, rgba(255,255,255,0.9) 50%, transparent 51%);
   background-repeat: repeat;
-  background-size: 160px 160px;  
+  background-size: 160px 160px;
   z-index: 1;
   animation: glitterMove 20s linear infinite, glitterTwinkle 2s infinite alternate;
 }
 
-/* Slow movement */
 @keyframes glitterMove {
   0% { transform: translate(0,0); }
   50% { transform: translate(40px,40px); }
   100% { transform: translate(0,0); }
 }
 
-/* Twinkle effect */
 @keyframes glitterTwinkle {
   0% { opacity: 0.9; }
   25% { opacity: 0.7; }
@@ -84,3 +74,6 @@ html, body {
   75% { opacity: 0.8; }
   100% { opacity: 0.9; }
 }
+
+@media (max-width: 768px) { .home-title { font-size: 60px; } }
+@media (max-width: 480px) { .home-title { font-size: 40px; } }
